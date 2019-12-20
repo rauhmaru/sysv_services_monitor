@@ -29,4 +29,14 @@ Importe o [template sysv_service_monitor](./template_sysv_service_monitor.xml) p
 [Linux Standard Base Core Specification, Generic Part, Chapter 22. System Initialization](https://refspecs.linuxbase.org/LSB_5.0.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html)
 
 ### Observações importantes
-Alguns serviços podem exibir o status de unknown (4), isso é um bug conhecido pela Red Hat (não verifiquei outras distros)
+Alguns serviços podem exibir o status de unknown (4), isso é um bug conhecido pela Red Hat (não verifiquei outras distros). Fazendo testes manuais, elevei os poderes do usuário zabbix, porém sem efeito:
+
+```shell
+[root@tmp]# su -l zabbix service rsyslog status; status $?
+rsyslogd status unknown due to insufficient privileges.
+4
+[root@tmp]# su -l zabbix service httpd status; echo $?
+httpd status unknown due to insufficient privileges.
+4
+```
+
