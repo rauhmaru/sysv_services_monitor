@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.0</version>
-    <date>2019-12-20T18:59:46Z</date>
+    <date>2019-12-20T23:40:31Z</date>
     <groups>
         <group>
             <name>Templates/Applications</name>
@@ -62,7 +62,7 @@
                             <snmp_community/>
                             <snmp_oid/>
                             <key>service_status[{#SERVICENAME}]</key>
-                            <delay>30s</delay>
+                            <delay>2m</delay>
                             <history>90d</history>
                             <trends>365d</trends>
                             <status>0</status>
@@ -84,7 +84,15 @@
                             <publickey/>
                             <privatekey/>
                             <port/>
-                            <description/>
+                            <description>0	program is running or service is OK&#13;
+1	program is dead and /var/run pid file exists&#13;
+2	program is dead and /var/lock lock file exists&#13;
+3	program is not running&#13;
+4	program or service status is unknown&#13;
+5-99	reserved for future LSB use&#13;
+100-149	reserved for distribution use&#13;
+150-199	reserved for application use&#13;
+200-254	reserved</description>
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
@@ -155,6 +163,14 @@
                 <mapping>
                     <value>0</value>
                     <newvalue>OK</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Dead and /var/run pid file exists</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Dead and /var/lock lock file exists</newvalue>
                 </mapping>
                 <mapping>
                     <value>3</value>
