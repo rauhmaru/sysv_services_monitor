@@ -1,5 +1,6 @@
 # sysV Services Monitor
 Monitoramento de serviços do Linux, indicado para hosts antigos (sysVinit)
+![sysv](zabbix_sysv.png)
 
 ## Motivação
 O @edsonnsj, lá no [grupo do telegram do Zabbix Brasil](https://t.me/ZabbixBrasil/284147), queria um script para monitorar os serviços dos seus servidores, porém, para os que utilizam ainda o [sysVinit](https://wiki.archlinux.org/index.php/SysVinit), isso é um pouco mais complicado, por conta da falta de padronização das saídas dos status dos serviços.
