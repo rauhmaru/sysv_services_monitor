@@ -25,8 +25,6 @@ service zabbix-agent restart
 ### No Zabbix Server
 Importe o [template sysv_service_monitor](./template_sysv_service_monitor.xml) para o seu Zabbix Server e em seguida, adicione no servidor que deseja monitorar os serviços.
 
-## Rerefências
-[Linux Standard Base Core Specification, Generic Part, Chapter 22. System Initialization](https://refspecs.linuxbase.org/LSB_5.0.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html)
 
 ### Observações importantes
 Alguns serviços podem exibir o status de unknown (4), isso é um bug conhecido pela Red Hat (não verifiquei outras distros). Fazendo testes manuais, elevei os poderes do usuário zabbix, porém sem efeito:
@@ -39,4 +37,9 @@ rsyslogd status unknown due to insufficient privileges.
 httpd status unknown due to insufficient privileges.
 4
 ```
+Outros serviços podem gerar uma saída parecida. Para esses casos, se o serviço for importante, recomendo utilizar outros métodos de monitoramento, como por exemplo, verificar se o processo está em execução, se a porta está aberta...
 
+## Rerefências
+* [Linux Standard Base Core Specification, Generic Part, Chapter 22. System Initialization](https://refspecs.linuxbase.org/LSB_5.0.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html)
+* [Bug 684881 - In RHEL5, non-privileged users can receive incorrect service status information](https://bugzilla.redhat.com/show_bug.cgi?id=684881)
+* [RHBA-2011:1040 - Bug Fix Advisory - SysVinit bug fix update](https://access.redhat.com/errata/RHBA-2011:104)
