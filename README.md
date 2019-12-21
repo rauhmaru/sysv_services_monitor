@@ -28,7 +28,7 @@ Importe o [template sysv_service_monitor](./template_sysv_service_monitor.xml) p
 
 
 ### Observações importantes
-Alguns serviços podem exibir o status de unknown (4), isso é um bug conhecido pela Red Hat (não verifiquei outras distros). Fazendo testes manuais, elevei os poderes do usuário zabbix, porém sem efeito:
+Alguns serviços podem exibir o status de unknown (4), isso é um [bug conhecido e já tratado pela Red Hat](https://access.redhat.com/errata/RHBA-2011:104) (não verifiquei outras distros). Fazendo testes manuais, elevei os poderes do usuário zabbix, porém sem efeito:
 
 ```shell
 [root@tmp]# su -l zabbix service rsyslog status; status $?
