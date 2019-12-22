@@ -1,10 +1,10 @@
 #!/bin/bash
 # Lista os servicos e verifica se estao em execucao
 
-tmpfile=$( mktemp )
+OLDLANG="$LANG"
+LANG="en_US.utf8"
 
-# Todos os servicos
-#chkconfig | awk /0:/'{ gsub("[0-6]:",""); print }' > $tmpfile
+tmpfile=$( mktemp )
 
 chkconfig | awk /3:on/'{ print $1 }' > $tmpfile
 
@@ -26,3 +26,7 @@ echo -e "  {"
 done < $tmpfile
 
 rm -f $tmpfile
+
+LANG=$OLDLANG
+
+exit 0
